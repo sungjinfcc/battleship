@@ -33,12 +33,14 @@ const displayController = () => {
   mainDiv.appendChild(boardsDiv);
   mainDiv.appendChild(resetDiv);
 
-  function clickHandlerPlay(e) {
+  async function clickHandlerPlay(e) {
     if (e.target.className === "board") return;
     const { cellRow } = e.target.dataset;
     const { cellCol } = e.target.dataset;
 
     gameController.playRound(cellRow, cellCol);
+    updateScreen();
+    await gameController.playComputer();
     updateScreen();
   }
 

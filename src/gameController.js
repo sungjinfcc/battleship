@@ -43,7 +43,7 @@ const gameController = (() => {
     return true;
   };
 
-  const playComputer = () => {
+  const playComputer = async () => {
     let randomX;
     let randomY;
     do {
@@ -53,7 +53,12 @@ const gameController = (() => {
       playerBoard.getBoard()[randomX][randomY] === "m" ||
       playerBoard.getBoard()[randomX][randomY] === "h"
     );
+    await new Promise((resolve) => setTimeout(resolve, 200));
     playerBoard.receiveAttack(randomX, randomY);
+    if (checkWinCondition()) {
+      return true;
+    }
+    return false;
   };
 
   const playRound = (x, y) => {
@@ -66,10 +71,7 @@ const gameController = (() => {
     if (checkWinCondition()) {
       return true;
     }
-    playComputer();
-    if (checkWinCondition()) {
-      return true;
-    }
+
     return false;
   };
 
@@ -80,6 +82,7 @@ const gameController = (() => {
   return {
     resetGame,
     playRound,
+    playComputer,
     getPlayerBoard,
     getComputerBoard,
     getWinner,
