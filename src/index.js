@@ -1,3 +1,6 @@
 import "./style.css";
+import gameController from "./gameController";
+import skeleton from "./skeleton";
 
-console.log("Hello world!");
+gameController.resetGame();
+skeleton.loadHome();
