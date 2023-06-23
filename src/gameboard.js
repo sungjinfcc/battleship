@@ -7,16 +7,13 @@ export default function createGameBoard() {
   const getBoard = () => board;
 
   const resetBoard = () => {
+    sinkCount = 0;
     for (let i = 0; i < row; i += 1) {
       board[i] = [];
       for (let j = 0; j < col; j += 1) {
         board[i].push(null);
       }
     }
-  };
-
-  const updateBoard = (x, y, value) => {
-    board[x][y] = value;
   };
 
   const placeShip = (stringX, stringY, ship) => {
@@ -26,9 +23,13 @@ export default function createGameBoard() {
     if (x + ship.length > col) {
       return false;
     }
-    for (let i = x; i < x + ship.length; i += 1) {
-      if (board[i][y] !== null) return false;
+    for (let i = x - 1; i <= x + ship.length; i += 1) {
+      if (i >= 0 && i <= 7) {
+        if (board[i][y] !== null) return false;
+      }
     }
+    // check if it's adjacent to another ship
+
     for (let i = x; i < x + ship.length; i += 1) {
       board[i][y] = ship;
     }

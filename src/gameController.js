@@ -1,7 +1,7 @@
 import createGameBoard from "./gameboard";
 import Ship from "./ship";
 
-const gameController = (function () {
+const gameController = (() => {
   const playerBoard = createGameBoard();
   const computerBoard = createGameBoard();
 

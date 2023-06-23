@@ -1,7 +1,11 @@
 import createHtmlElement from "./createHtml";
 import displayController from "./displayController";
+import "@fortawesome/fontawesome-free/js/fontawesome";
+import "@fortawesome/fontawesome-free/js/solid";
+import "@fortawesome/fontawesome-free/js/regular";
+import "@fortawesome/fontawesome-free/js/brands";
 
-const skeleton = (function () {
+const skeleton = (() => {
   function createHeader() {
     const header = document.createElement("header");
     header.classList.add("header");

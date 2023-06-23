@@ -38,6 +38,16 @@ main {
   width: 100%;
   justify-items: center;
 }
+.player-div,
+.computer-div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+h4 {
+  margin-bottom: 1rem;
+}
 .board {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -47,6 +57,7 @@ main {
   gap: 0.3rem;
   margin-bottom: 3rem;
   border: 0.5rem solid black;
+  border-radius: 1rem;
   padding: 0.5rem;
 }
 .cell {
@@ -59,19 +70,25 @@ main {
   cursor: pointer;
   width: 3rem;
   height: 3rem;
+  border-radius: 0.5rem;
 }
 .cell:hover {
-  background-color: #cc8e35;
+  background-color: #cc8d34;
 }
 .cell.miss:hover,
 .cell.hit:hover {
   cursor: auto;
 }
 .cell.hit {
-  background-color: aquamarine;
+  background-color: #cc4335;
 }
 .cell.ship {
-  background-color: bisque;
+  background-color: #ffefd9;
+}
+.cell.inactive:hover {
+  /* Do nothing */
+  cursor: auto;
+  background-color: #ffb142;
 }
 .reset {
   border: none;
